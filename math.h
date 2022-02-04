@@ -10,11 +10,11 @@
  * */
 
 
-#include "math/vector.h"
-#include "math/matrix33.h"
-#include "math/matrix44.h"
-#include "math/dynamic_matrix.h"
-#include "math/quaternion.h"
+#include "vector.h"
+#include "matrix33.h"
+#include "matrix44.h"
+#include "dynamic_matrix.h"
+#include "quaternion.h"
 
 #define PI 3.141592
 #define SQRT12 0.7071067811865475244008443621048490f
