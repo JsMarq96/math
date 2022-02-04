@@ -1,5 +1,6 @@
 # math
-Built from the ground up, no dependecies, math library, for educational purposes.
+Built from the ground up, no dependecies, math library, for educational purposes.<br/>
+Just header files.
 
 ## ATENTION: It uses the OpenGL format
 
