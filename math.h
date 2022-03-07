@@ -120,4 +120,23 @@ inline void plane_space(const sVector3  &normal,
 
 }
 
+inline bool solve_quadratic_equation(const float a,
+                                     const float b,
+                                     const float c,
+                                     float *result_1,
+                                     float *result_2) {
+    float discriminant = (b * b) - (4.0f * a * c);
+
+    if (discriminant < 0.0f) { // No solution
+        return false;
+    } else if (discriminant == 0.0f) { // One solution
+        *result_1 = -0.5f * b / a;
+    } else { // 2 solutions
+        float sqrt_determinant = sqrt(discriminant);
+        *result_1 = (-b - sqrt_determinant) / 2.0f * a;
+        *result_2 = (-b + sqrt_determinant) / 2.0f * a;
+    }
+
+    return true;
+}
 #endif // __MATH_H_
