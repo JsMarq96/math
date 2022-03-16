@@ -15,6 +15,7 @@
 #include "matrix44.h"
 #include "dynamic_matrix.h"
 #include "quaternion.h"
+#include <dirent.h>
 
 #define PI 3.141592
 #define SQRT12 0.7071067811865475244008443621048490f
@@ -46,8 +47,6 @@ inline sVector3 sVector3::rotate(const sQuaternion4 &quat) const {
 
     return sVector3{yt.x, yt.y, yt.z};
 }
-
-
 
 //// FUNCTIONS
 inline float ABS(float x) { return (x < 0.0f) ? x * -1.0f : x; }
@@ -90,6 +89,12 @@ inline sVector3 cross_prod(const sVector3 &v1, const sVector3 &v2) {
                     v1.z * v2.x - v1.x * v2.z,
                     v1.x * v2.y - v1.y * v2.x};
 }
+
+inline sVector3 reflect_vector(const sVector3 &direction,
+                               const sVector3 &normal) {
+    return direction.subs(normal.mult(2.0f * dot_prod(direction, normal)));
+}
+
 
 // ?? For generting tangent vectors
 inline void plane_space(const sVector3  &normal,
