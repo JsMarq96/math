@@ -13,7 +13,11 @@ union sVector2 {
 
 union sVector3 {
     float raw_values[3] = { 0.0f, 0.0f, 0.0f };
-    struct { float x; float y; float z; };
+  struct { float x; float y; float z; };
+
+  inline bool is_equal(const sVector3& vect) {
+    return x == vect.x && y == vect.y && z == vect.z;
+  }
 
     inline void multiply(const sVector3 &vect) {
       x *= vect.x;

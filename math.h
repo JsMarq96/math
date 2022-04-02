@@ -19,9 +19,11 @@
 
 #define PI 3.141592
 #define SQRT12 0.7071067811865475244008443621048490f
+#define EPSILON 0.001f
 
 // TODO: cleanup a bit, its getting a bit messy bro
 // tired fixing it a bit
+
 
 inline float radians(const float degrees) {
     return degrees * PI / 180.0f;
@@ -54,6 +56,11 @@ inline float MAX(float x, float y) { return (x >= y) ? x : y; }
 inline float MIN(float x, float y) { return (x < y) ? x : y; }
 inline int MAX(int x, int y) { return (x >= y) ? x : y; }
 inline int MIN(int x, int y) { return (x < y) ? x : y; }
+
+inline bool accurate_bigger_than(const float x, const float y) {
+   return ABS(x - y) < EPSILON;
+}
+
 
 inline float LERP(const float a,
                   const float b,
